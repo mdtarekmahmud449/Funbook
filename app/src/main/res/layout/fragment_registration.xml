@@ -16,11 +16,29 @@
         android:layout_marginBottom="20dp"
         />
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userTextField"
+        android:id="@+id/userNameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Name"
+        app:placeholderText="John Doe"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userEmailField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginTop="10dp"
+        app:placeholderText="example@gmail.com"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -36,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        app:placeholderText="********"
         android:layout_marginTop="10dp"
         app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -50,14 +69,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:background="@drawable/login_btn_selector"
-        android:id="@+id/login_btn"
+        android:id="@+id/registerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registration"
         android:textColor="@color/white"
         android:layout_marginTop="16dp"/>
     <TextView
-        android:id="@+id/dontHaveAccount_tv"
+        android:id="@+id/alreadyLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
