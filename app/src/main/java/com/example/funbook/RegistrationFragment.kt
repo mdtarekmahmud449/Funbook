@@ -28,12 +28,10 @@ class RegistrationFragment :
             } else if (email.isBlank()) {
                 binding.userEmailField.error = "Enter your email..."
                 binding.userEmailField.requestFocus()
-            }
-            else if(email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.userEmailField.error = "Put your valid email address"
                 binding.userEmailField.requestFocus()
-            }
-            else if (password.isBlank()) {
+            } else if (password.isBlank()) {
                 binding.passwordTextField.error = "Password can't be blank..."
                 binding.passwordTextField.requestFocus()
             } else if (password.length < 6) {
@@ -42,9 +40,29 @@ class RegistrationFragment :
             } else {
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        Toast.makeText(requireContext(), "User registration is complete...", Toast.LENGTH_SHORT).show()
-                        mAuth.signOut()
-                        findNavController().popBackStack()
+                        val user = User(
+                            name = name,
+                            email = email,
+                            password = password,
+                            profileImage = "",
+                            userId = it.result.user!!.uid
+                        )
+                        mRef.child("User").child(user.userId).setValue(user)
+                            .addOnSuccessListener { task ->
+                                Toast.makeText(
+                                    requireContext(),
+                                    "User registration is complete...",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                mAuth.signOut()
+                                findNavController().popBackStack()
+
+                            }.addOnFailureListener { failTask ->
+                                val dialog = AlertDialog.Builder(requireContext())
+                                dialog.setTitle("Failure Error...")
+                                dialog.setMessage(failTask.message)
+                                dialog.create().show()
+                            }
                     }
                 }
                     .addOnFailureListener {

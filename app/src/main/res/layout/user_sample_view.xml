@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/main_color"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Md. Tarek Mahmud"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:id="@+id/name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mdtarekmahmud449@gmail.com"
+            android:textColor="@color/deep_white"
+            android:textSize="16sp"
+            android:id="@+id/email"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mdtarekmahmud449"
+            android:textColor="@color/deep_white"
+            android:textSize="16sp"
+            android:id="@+id/userId"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
